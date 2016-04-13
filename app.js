@@ -21,7 +21,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.showHomepage);
-app.get('/resourceList', routes.displayResources);
 app.get('/createResource', routes.createResource);
 
 // catch 404 and forward to error handler

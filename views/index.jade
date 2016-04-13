@@ -2,6 +2,10 @@ extends layout
 
 block content
   h1= title
-  p This site enables the submission of new resources to the appy platform.
-  button(type="button", onclick="location.href='createResource';") Create new resources
-  button(type="button", onclick="location.href='resourceList';") Review existing resources
+  p This page will, at some point, display the current resources stored.
+  p For now, just hit the button to add a new resource.
+  
+  a.btn-floating.btn-large.waves-effect.waves-light.red(
+      onClick="location.href='/createResource';"
+      )
+     i.material-icons add
