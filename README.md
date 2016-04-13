@@ -1,2 +1,7 @@
-# apps-resource-submitter
-A website to submit resources for the appy application. 
+# Resource Submitter for the appy application
+
+### Submit Resources
+//todo: add screen shots with instructions for submitting resources
+
+### View Resources
+//todo: add screen shots to show how to view all the resources
