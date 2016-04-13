@@ -1,0 +1,38 @@
+body {
+  padding: 50px;
+  font: 14px "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+input {
+    padding-top: 20px;
+}
+
+input[type=text], [type=url] {
+    width: 75%;
+    display: block;
+    border: none;
+    border-bottom: 2px solid;
+    border-color: #ADD9B6;
+}
+
+select {
+    width: 75%;
+    height: 20px;
+    padding-top: 20px;
+}
+
+input[type=button] {
+    display: inline;
+    width: 25%;
+    background-color: #83AF9B;
+}
+
+input[type=reset] {
+    display: inline;
+    width: 25%;
+    background-color: #FE4365;
+}

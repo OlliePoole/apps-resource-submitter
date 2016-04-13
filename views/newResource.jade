@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  h1 Add new Resource
+  p This page allows the user to create a resource.
+  
+  form()
+    input(type="text", name="title", placeholder="Title")    
+    input(type="text", name="author", placeholder="Author")    
+    input(type="text", name="description", placeholder="Description")
+    input(type="text", name="tags", placeholder="Tags [comma seperated]") 
+    input(type="url", name="url", placeholder="Resource URL")
+    
+    select(name="resource-type")
+        option(value="quote") Quote
+        option(value="video") Video
+        option(value="article") Article
+    br
+    
+    input(type="text", name="time-to-read", placeholder="If Video/Article, enter the time to read. e.g. 12")
+    
+    input(type="button", value="Submit", onClick="createResource();")
+    input(type="reset")
+    
+  script.
+    function createResource() {
+      var title = document.getElementById("title");
+      var author = document.getElementById("author");
+      var description = document.getElementById("description");
+      var tags = document.getElementById("tags");
+      var url = document.getElementById("url");
+      var type = document.getElementById("resource-type");
+      
+      if (type == "video" || type == "article") {
+          var timeToRead = document.getElementById("time-to-read");
+      }
+      
+      if (title == undefined || author == undefined || description == undefined
+           || tags == undefined || url == undefined || type == undefined) {
+              alert("Fill the entire form in you stupid human!")
+          }
+          
+      
+      // save to firebase
+      
+      
+    }
+    
