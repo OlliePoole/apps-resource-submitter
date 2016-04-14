@@ -3,24 +3,86 @@ extends layout
 block content
   h1 Add new Resource
   p This page allows the user to create a resource.
-  
-  form()
-    input(type="text", name="title", placeholder="Title")    
-    input(type="text", name="author", placeholder="Author")    
-    input(type="text", name="description", placeholder="Description")
-    input(type="text", name="tags", placeholder="Tags [comma seperated]") 
-    input(type="url", name="url", placeholder="Resource URL")
+
+  //- form()
+  //- .input-field.col.s6
+  //-   input#last_name.validate(type='text')
+  //-       label(for='last_name') Last Name 
+  //-   input(type="text", name="author", placeholder="Author")    
+  //-   input(type="text", name="description", placeholder="Description")
+  //-   input(type="text", name="tags", placeholder="Tags [comma seperated]") 
+  //-   input(type="url", name="url", placeholder="Resource URL")
+      //input(type="text", name="time-to-read", placeholder="If Video/Article, enter the time to read. e.g. 12")
+
+  .row
+    form.col.s12
+      .row 
+        .input-field.col.s6
+          input#resource_title.validate(type='text')
+          label(for='resource_title') Resource Title
+          
+        .input-field.col.s6
+          input#resource_author.validate(type='text')
+          label(for='resource_author') Resource Author
+          
+      .row
+        .input-field.col.s12
+          textarea#resource_description_text_area.materialize-textarea
+          label(for='resource_description_text_area') Resource Description
+      
+      .row
+        .input-field.col.s12
+          input#resource_tags_input(type='text', value data-role='materialtags')
+          label(for='resource_tags_input') Resource Tags
+          
+      .row
+        .input-field.col.s12
+          input#resource_url.validate(type='url')
+          label(for='resource_url') Resource URL
+      
+      script.
+        $(document).ready(function() {
+          $('select').material_select();
+        });   
+      
+      .row
+        .input-field.col.s6
+          select(onchange='resourceTypeChanged(this);')
+            option(value='', disabled selected) Select a resource type
+            option(value='quote') Quote
+            option(value='video') Video
+            option(value='article') Article
+          label Resource Type
+          
+        // script to handle the input from the select statement
+        script.
+          function resourceTypeChanged(switcher) {
+            if (switcher.value == 'video' || switcher.value == 'article') {
+              // show extra input field
+              document.getElementById("resource_duration").style.display = "none";
+            }
+          }
+          
+        .input_field.col.s6
+          .resource_duration_input.style.display = "none";
+          input#resource_duration(type='text')
+          label(for='resource_duration') Resource Duration
+
+      .row
+        .input-field.col.s12
+          // Empty row for space at the bottom.
+      
+      .row
+        .input-field.col.s12
+          a.btn.waves-effect.waves-light(type='button', onClick="createResource();")
+            | Submit
+            i.material-icons.right send
     
-    select(name="resource-type")
-        option(value="quote") Quote
-        option(value="video") Video
-        option(value="article") Article
-    br
+
     
-    input(type="text", name="time-to-read", placeholder="If Video/Article, enter the time to read. e.g. 12")
     
-    input(type="button", value="Submit", onClick="createResource();")
-    input(type="reset")
+
+
     
   script.
     function createResource() {
@@ -45,4 +107,3 @@ block content
       
       
     }
-    
